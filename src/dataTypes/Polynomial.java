@@ -35,16 +35,22 @@ public class Polynomial extends ArrayList<Monomial> {
 		if(this.contains(new Monomial(item))){
 			int index=this.indexOf(new Monomial(item));
 			this.coeffs.set(index,this.coeffs.get(index)+item.coeff);
+			removeZeros();
 			return true;
 		}else{
 			Monomial m=new Monomial(item);
 			coeffs.add(item.coeff);
+			removeZeros();
 			return super.add(m);
 		}
 	}
 	public void removeZeros(){
 		for(int i=0;i<coeffs.size();i++){
-			
+			if(coeffs.get(i)==0){
+				coeffs.remove(i);
+				this.remove(i);
+				i--;
+			}
 		}
 	}
 	@Override
@@ -55,6 +61,9 @@ public class Polynomial extends ArrayList<Monomial> {
 		}
 		String str=withCoeffs.toString().replaceAll(", ", "+");
 		str=str.replaceAll("\\[", "").replaceAll("\\]", "");
+		if(str.isEmpty()){
+			return "0";
+		}
 		return str;
 	}
 	
