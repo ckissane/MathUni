@@ -39,7 +39,7 @@ public class Monomial extends ArrayList<String> {
 		withCoeff.addAll(this);
 		withCoeff.add(0, coeff+"");
 		String str=withCoeff.toString().replaceAll(", ", "");
-		str=str.replaceAll("\\[", "").replaceAll("\\]", "");
+		str=str.replaceAll("\\[", "\\(").replaceAll("\\]", "\\)");
 		return str;
 	}
 	

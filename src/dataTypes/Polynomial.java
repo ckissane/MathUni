@@ -60,9 +60,9 @@ public class Polynomial extends ArrayList<Monomial> {
 			m.coeff=this.coeffs.get(withCoeffs.indexOf(m));
 		}
 		String str=withCoeffs.toString().replaceAll(", ", "+");
-		str=str.replaceAll("\\[", "").replaceAll("\\]", "");
-		if(str.isEmpty()){
-			return "0";
+		str=str.replaceAll("\\[", "\\(").replaceAll("\\]", "\\)");
+		if(str.replaceAll("\\(", "").replaceAll("\\)", "").isEmpty()){
+			return "(0)";
 		}
 		return str;
 	}

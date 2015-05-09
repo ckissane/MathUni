@@ -25,6 +25,8 @@ public class Demo extends ConsoleProgram {
 		b.add("y");
 		more.add(b);
 		println(more.toString());
+		more.add(a);
+		println(more.toString());
 	}
 
 }
